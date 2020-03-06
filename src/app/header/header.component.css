@@ -1,0 +1,15 @@
+#header {
+  padding: 20px;
+  display: flex;
+  border-bottom: solid black;
+}
+
+button {
+  display: inline-flex;
+}
+
+h2 {
+  display: inline-flex;
+  padding-top: 10px;
+  padding-left: 10px;
+}

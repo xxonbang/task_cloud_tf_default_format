@@ -1,0 +1,38 @@
+<app-header></app-header>
+
+<mat-drawer-container class="contents-container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side" opened>
+    <p>SideNav Part</p>
+    <button mat-button (click)="addTab(1, 'Menu1')">
+      Menu1
+    </button>
+    <br/>
+    <button mat-button (click)="addTab(2, 'Menu2')">
+      Menu2
+    </button>
+  </mat-drawer>
+
+  <div class="content">
+    <div class="PageTabs">
+      <button mat-button (click)="drawer.toggle()">🐱‍🚀</button>
+      <button
+        mat-raised-button
+        class="delete-tab-button"
+        (click)="removeTab(selected.value)"
+        [disabled]="tabs.length === 1"
+      >
+        Delete Tab
+      </button>
+
+      <mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)" (click)="tabRouting()">
+        <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">
+          {{tab}}
+
+        </mat-tab>
+      </mat-tab-group>
+      <div *ngIf="checkMenuClicked">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</mat-drawer-container>
